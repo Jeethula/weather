@@ -40,23 +40,16 @@ const activeIncidents = [
 
 export default function ActiveIncidents() {
   return (
-    <div className="grid gap-6">
+    <div className="gap-6 grid">
       {activeIncidents.map((incident) => (
         <Card key={incident.id}>
           <CardHeader>
-            <div className="flex items-center justify-between">
+            <div className="flex justify-between items-center">
               <CardTitle className="flex items-center gap-2">
-                <AlertTriangle className="h-5 w-5 text-red-500" />
+                <AlertTriangle className="w-5 h-5 text-red-500" />
                 {incident.type}
               </CardTitle>
               <Badge
-                variant={
-                  incident.severity === "Critical"
-                    ? "destructive"
-                    : incident.severity === "High"
-                    ? "warning"
-                    : "secondary"
-                }
               >
                 {incident.severity}
               </Badge>
@@ -64,15 +57,15 @@ export default function ActiveIncidents() {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="gap-4 grid grid-cols-2">
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
-                    <MapPin className="h-4 w-4 text-muted-foreground" />
-                    <span className="text-sm font-medium">{incident.location}</span>
+                    <MapPin className="w-4 h-4 text-muted-foreground" />
+                    <span className="font-medium text-sm">{incident.location}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Users className="h-4 w-4 text-muted-foreground" />
-                    <span className="text-sm font-medium">
+                    <Users className="w-4 h-4 text-muted-foreground" />
+                    <span className="font-medium text-sm">
                       {incident.peopleAffected} affected
                     </span>
                   </div>
@@ -88,7 +81,7 @@ export default function ActiveIncidents() {
                   </div>
                 </div>
               </div>
-              <div className="flex items-center justify-between">
+              <div className="flex justify-between items-center">
                 <Badge variant="outline">{incident.status}</Badge>
                 <div className="flex gap-2">
                   <Button variant="outline" size="sm">
