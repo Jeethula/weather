@@ -31,27 +31,27 @@ const zones = [
 
 export default function DisasterMap() {
   return (
-    <div className="grid gap-6 md:grid-cols-3">
+    <div className="gap-6 grid md:grid-cols-3">
       <div className="md:col-span-2">
         <Card className="h-full">
           <CardHeader>
-            <div className="flex items-center justify-between">
+            <div className="flex justify-between items-center">
               <CardTitle className="flex items-center gap-2">
-                <AlertTriangle className="h-5 w-5 text-red-500" />
+                <AlertTriangle className="w-5 h-5 text-red-500" />
                 Disaster Risk Zones
               </CardTitle>
               <div className="flex gap-2">
                 <Button variant="outline" size="sm">
-                  <Layers className="h-4 w-4" />
+                  <Layers className="w-4 h-4" />
                 </Button>
                 <Button variant="outline" size="sm">
-                  <MapPin className="h-4 w-4" />
+                  <MapPin className="w-4 h-4" />
                 </Button>
               </div>
             </div>
           </CardHeader>
           <CardContent>
-            <div className="aspect-[16/9] rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+            <div className="flex justify-center items-center bg-gray-100 dark:bg-gray-800 rounded-lg aspect-[16/9]">
               <p className="text-muted-foreground">Interactive Disaster Map</p>
             </div>
           </CardContent>
@@ -62,10 +62,9 @@ export default function DisasterMap() {
         {zones.map((zone) => (
           <Card key={zone.id}>
             <CardHeader>
-              <div className="flex items-center justify-between">
+              <div className="flex justify-between items-center">
                 <CardTitle className="text-base">{zone.name}</CardTitle>
                 <Badge
-                  variant={zone.risk.toLowerCase() === "high" ? "destructive" : "warning"}
                 >
                   {zone.risk} Risk
                 </Badge>
@@ -74,16 +73,16 @@ export default function DisasterMap() {
             <CardContent>
               <div className="space-y-2">
                 <div className="flex justify-between">
-                  <span className="text-sm text-muted-foreground">Type</span>
-                  <span className="text-sm font-medium">{zone.type}</span>
+                  <span className="text-muted-foreground text-sm">Type</span>
+                  <span className="font-medium text-sm">{zone.type}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-sm text-muted-foreground">
+                  <span className="text-muted-foreground text-sm">
                     Affected Population
                   </span>
-                  <span className="text-sm font-medium">{zone.affected}</span>
+                  <span className="font-medium text-sm">{zone.affected}</span>
                 </div>
-                <Button className="w-full mt-2" variant="outline" size="sm">
+                <Button className="mt-2 w-full" variant="outline" size="sm">
                   View Details
                 </Button>
               </div>
