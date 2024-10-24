@@ -47,48 +47,41 @@ const teamMembers = [
 
 export default function TeamMembers() {
   return (
-    <div className="grid gap-6">
+    <div className="gap-6 grid">
       {teamMembers.map((member) => (
         <Card key={member.id}>
           <CardContent className="pt-6">
             <div className="flex items-start gap-4">
-              <Avatar className="h-12 w-12">
+              <Avatar className="w-12 h-12">
                 <AvatarFallback>{member.avatar}</AvatarFallback>
               </Avatar>
               <div className="flex-1 space-y-4">
-                <div className="flex items-center justify-between">
+                <div className="flex justify-between items-center">
                   <div>
                     <h3 className="font-semibold">{member.name}</h3>
-                    <p className="text-sm text-muted-foreground">{member.role}</p>
+                    <p className="text-muted-foreground text-sm">{member.role}</p>
                   </div>
                   <Badge
-                    variant={
-                      member.status === "On Duty"
-                        ? "success"
-                        : member.status === "Available"
-                        ? "secondary"
-                        : "outline"
-                    }
                   >
                     {member.status}
                   </Badge>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="gap-4 grid grid-cols-2">
                   <div className="space-y-2">
                     <div className="flex items-center gap-2 text-sm">
-                      <MapPin className="h-4 w-4 text-muted-foreground" />
+                      <MapPin className="w-4 h-4 text-muted-foreground" />
                       <span>{member.location}</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm">
-                      <Phone className="h-4 w-4 text-muted-foreground" />
+                      <Phone className="w-4 h-4 text-muted-foreground" />
                       <span>{member.contact.phone}</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm">
-                      <Mail className="h-4 w-4 text-muted-foreground" />
+                      <Mail className="w-4 h-4 text-muted-foreground" />
                       <span>{member.contact.email}</span>
                     </div>
                   </div>
-                  <div className="flex items-end justify-end gap-2">
+                  <div className="flex justify-end items-end gap-2">
                     <Button variant="outline" size="sm">
                       Message
                     </Button>
